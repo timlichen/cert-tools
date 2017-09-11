@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 '''
-Generates the issuer file (.json) thar represents the issues which is needed for issuing and validating certificates.
+Generates the issuer file (.json) that represents the issues which is needed for issuing and validating certificates.
 
 Currently, just not check for inputs' validity (e.g. valid address, URLs, etc.)
 '''

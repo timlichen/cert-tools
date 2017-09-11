@@ -22,6 +22,7 @@ from cert_tools import jsonpath_helpers
 
 class Recipient:
     def __init__(self, fields):
+        
         self.name = fields['name']
         self.pubkey = fields['pubkey']
         self.identity = fields['identity']
