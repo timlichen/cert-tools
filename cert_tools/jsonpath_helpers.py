@@ -1,6 +1,7 @@
 from jsonpath_rw import parse, Root, Child, Fields
 
 
+
 def additional_global_fields(config, raw_json):
     if config.additional_global_fields:
         for field in config.additional_global_fields:

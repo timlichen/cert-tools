@@ -65,6 +65,9 @@ def instantiate_recipient(config, cert, recipient):
     if config.additional_per_recipient_fields:
         if not recipient.additional_fields:
             raise Exception('expected additional recipient fields in the csv file but none found')
+
+        # print config.additional_per_recipient_fields
+
         for field in config.additional_per_recipient_fields:
             cert = jsonpath_helpers.set_field(cert, field['path'], recipient.additional_fields[field['csv_column']])
     else:
