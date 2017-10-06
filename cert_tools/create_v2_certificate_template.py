@@ -95,41 +95,21 @@ def create_assertion_section(config):
             OPEN_BADGES_V2_CONTEXT, 
             BLOCKCERTS_V2_CONTEXT,
             {   
-                # This code will allow me to have a custom global field that is not based off the csv file.
-                
-                # This info should be filled in later through the CSV
-                "@vocab": "https://schema.org#",
                 "Python" : "https://schema.org#",
                 "MEAN" : "https://schema.org#",
-                # "Java" : "https://schema.org#"
-
+                "Java" : "https://schema.org#",
+                "iOS" : "https://schema.org#",
+                "WebFun" : "https://schema.org#",
+                "RoR" : "https://schema.org#",
+                "LAMP" : "https://schema.org#",
+                "C_SHARP" : "https://schema.org#",
             }
-            
         ],
-        "Python_": "Information about python",
         'type': 'Assertion',
         'issuedOn': '*|DATE|*',
         'id': helpers.URN_UUID_PREFIX + '*|CERTUID|*'
     }
     return assertion
-
-
-#     line 93:
-# assertion = {
-#   '@context': [
-#   OPEN_BADGES_V2_CONTEXT,
-#   BLOCKCERTS_V2_CONTEXT,
-#   "https://your-custom-context/v1", {
-#   "xyz_custom_field": {
-#   "@id": "http://xmlns.com/foaf/0.1/xyz",
-#   }
-#   }
-#   ],
-#   'type': 'Assertion',
-#   'issuedOn': '*|DATE|*',
-#   'id': helpers.URN_UUID_PREFIX + '*|CERTUID|*'
-#   }
-
 
 def create_certificate_template(config):
 
@@ -161,15 +141,6 @@ def create_certificate_template(config):
 
     if config.additional_per_recipient_fields:
         for field in config.additional_per_recipient_fields:
-            
-            print "*****"
-            print field
-            print "*****"
-            # assertion IS the raw template json
-
-            print field['path']
-            print field['value']
-
             assertion = jsonpath_helpers.set_field(assertion, field['path'], field['value'])
 
     template_path = os.path.join(config.abs_data_dir, template_dir, template_file_name)
